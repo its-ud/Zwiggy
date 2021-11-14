@@ -1,7 +1,7 @@
 # Team : HackIt
 ## App name: Zwiggy
 ## App Disc: 
-**This is an open source food ordering application developed to showcase the capabilities of. This app helps in ordering foods from multiple outlets located in an office, college campus, or food courts in malls. Customers can save themselves a lot of burden from waiting in line to place an order and picking up the order later. They can browse the entire catalog of food items available to them through the app and seamlessly order food from any restaurant of their choice.**
+**This app helps in ordering foods from multiple outlets located in an office, college campus, or food courts in malls. Customers can save themselves a lot of burden from waiting in line to place an order and picking up the order later. They can browse the entire catalog of food items available to them through the app and seamlessly order food from any restaurant of their choice.**
 
 
 ## To Test the app create a suitable environment 
