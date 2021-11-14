@@ -47,13 +47,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/new_order_restaurant_name"
             android:text="Restaurant Name:- "
             android:textSize="20dp"
             android:textColor="@color/black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/new_order_restaurant_name"
             android:text="Amar Vilas"
             android:textSize="20dp"
             android:textColor="@color/teal_700"/>
@@ -112,5 +112,49 @@
         android:textSize="25dp"
         android:textStyle="bold"
         android:layout_marginLeft="50dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:id="@+id/place_order"
+            android:text="Place Order"
+            android:textSize="20dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/cardview_dark_background"
+            android:background="@color/cardview_dark_background"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:id="@+id/accept_order"
+            android:text="Accept Order"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:background="#00ff25"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reject_order"
+        android:textColor="@color/white"
+        android:text="Reject Order"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:background="#ff0000"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

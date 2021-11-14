@@ -48,8 +48,8 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
     public void onBindViewHolder(@NonNull CreateNewOrderAdapterViewHolder holder, int position) {
         NewOrderMenuItem item = mNewOrder.get(position);
         holder.menuItemName.setText(item.getItemName());
-        holder.menuItemPrice.setText(Integer.toString(item.getPrice()));
-        holder.menuItemQuantity.setText(Integer.toString(item.getQuatity()));
+        holder.menuItemPrice.setText("Rs. "+Integer.toString(item.getPrice()));
+        holder.menuItemQuantity.setText("Quantity:- "+Integer.toString(item.getQuatity()));
         holder.menuItemTotal.setText(Integer.toString(item.getPrice()*item.getQuatity()));
     }
 

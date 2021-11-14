@@ -31,6 +31,8 @@ public class setUserId {
         {
             if (result.isSuccess()) {
                 String userid= result.get().getObjectId("_id").toString();
+                String name=result.get().getString("Name");
+                UserDetail.setName(name);
                 UserDetail.setuserOwnerid(userid);
                 Log.v(LOG_TAG, "USER ID FOUND and set");
             } else {

@@ -2,6 +2,7 @@ package com.example.zwiggy.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
@@ -9,6 +10,7 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -72,6 +74,7 @@ public class OwnerDataActivity extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hideKeybaord(view);
                 progressBar.setVisibility(View.VISIBLE);
                 done.setEnabled(false);
                 RestaurantName=editRestaurantName.getText().toString();
@@ -149,5 +152,10 @@ public class OwnerDataActivity extends AppCompatActivity {
         }
 
         return p1;
+    }
+    private void hideKeybaord(View v) {
+        InputMethodManager inputMethodManager = (InputMethodManager) this.getSystemService(Service.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
+
     }
 }

@@ -6,10 +6,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -35,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
     App app;
     String appID = "hackit-qyzey";
     ProgressBar progressBar;
-//    SignInButton loginGoogle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +52,6 @@ public class LoginActivity extends AppCompatActivity {
         loginSignup.setOnClickListener(LoginSignupClick);
         loginButton.setOnClickListener(LoginButtonClick);
         progressBar = findViewById(R.id.progressLogin);
-//        loginGoogle = findViewById(R.id.loginGoogle);
-//        loginGoogle.setOnClickListener(loginGoogleClick);
-
         app = new App(new AppConfiguration.Builder(appID).build());
         progressBar.setVisibility(View.GONE);
 
@@ -77,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             String email = editLoginEmail.getText().toString();
             String password = editLoginPassword.getText().toString();
             if(email!=null && password!=null){
+                hideKeybaord(view);
                 progressBar.setVisibility(View.VISIBLE);
                 loginButton.setEnabled(false);
                 Credentials emailPasswordCredentials = Credentials.emailPassword(email, password);
@@ -113,10 +112,9 @@ public class LoginActivity extends AppCompatActivity {
     };
 
 
-    View.OnClickListener loginGoogleClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            //signInWithGoogle();
-        }
-    };
+    private void hideKeybaord(View v) {
+        InputMethodManager inputMethodManager = (InputMethodManager) this.getSystemService(Service.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
+
+    }
 }

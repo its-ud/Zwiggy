@@ -2,10 +2,12 @@ package com.example.zwiggy.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -67,6 +69,7 @@ public class SignupActivity extends AppCompatActivity {
            password=editSignUpPassword.getText().toString();
             name=editSignUpName.getText().toString();
             if(email!=null && password!=null && name!=null) {
+                hideKeybaord(view);
                 progressBar.setVisibility(View.VISIBLE);
                 signUpButton.setEnabled(false);
                 app.getEmailPassword().registerUserAsync(email, password, it -> {
@@ -122,6 +125,11 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(SignupActivity.this,"Login Failed, Try Again", Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+    private void hideKeybaord(View v) {
+        InputMethodManager inputMethodManager = (InputMethodManager)this.getSystemService(Service.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
 
     }
 
