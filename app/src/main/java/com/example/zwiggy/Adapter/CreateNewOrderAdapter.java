@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zwiggy.Data.MenuItem;
+import com.example.zwiggy.Data.NewOrderMenuItem;
 import com.example.zwiggy.Data.Restaurant;
 import com.example.zwiggy.Data.UserDetail;
 import com.example.zwiggy.R;
@@ -23,12 +24,12 @@ import java.util.ArrayList;
 
 public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAdapter.CreateNewOrderAdapterViewHolder> {
 
-    ArrayList<String> mNewOrders;
+    ArrayList<NewOrderMenuItem> mNewOrder;
     Context mContext;
 
-    public CreateNewOrderAdapter(Context context, ArrayList<String> orders){
+    public CreateNewOrderAdapter(Context context, ArrayList<NewOrderMenuItem> orders){
         mContext = context;
-        mNewOrders = orders;
+        mNewOrder = orders;
     }
     @NonNull
     @Override
@@ -45,26 +46,31 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
 
     @Override
     public void onBindViewHolder(@NonNull CreateNewOrderAdapterViewHolder holder, int position) {
-
+        NewOrderMenuItem item = mNewOrder.get(position);
+        holder.menuItemName.setText(item.getItemName());
+        holder.menuItemPrice.setText(Integer.toString(item.getPrice()));
+        holder.menuItemQuantity.setText(Integer.toString(item.getQuatity()));
+        holder.menuItemTotal.setText(Integer.toString(item.getPrice()*item.getQuatity()));
     }
 
     @Override
     public int getItemCount() {
-        return mNewOrders.size();
+        return mNewOrder.size();
     }
 
-    public class CreateNewOrderAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView newOrder;
+    public class CreateNewOrderAdapterViewHolder extends RecyclerView.ViewHolder {
+        public TextView menuItemName;
+        public TextView menuItemQuantity;
+        public TextView menuItemPrice;
+        public TextView menuItemTotal;
 
         public CreateNewOrderAdapterViewHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
-            newOrder = itemView.findViewById(R.id.rvCreateNewOrder);
+            menuItemName=itemView.findViewById(R.id.new_order_item_name);
+            menuItemQuantity=itemView.findViewById(R.id.new_order_item_quantity);
+            menuItemPrice=itemView.findViewById(R.id.new_order_item_price);
+            menuItemTotal=itemView.findViewById(R.id.item_total);
         }
 
-        @Override
-        public void onClick(View view) {
-
-        }
     }
 }

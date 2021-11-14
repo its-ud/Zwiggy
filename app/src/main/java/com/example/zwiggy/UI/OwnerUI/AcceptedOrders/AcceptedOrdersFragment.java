@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zwiggy.Adapter.AcceptedOrderAdapter;
 import com.example.zwiggy.Adapter.PendingOrderAdapter;
+import com.example.zwiggy.Data.PendingOrder;
 import com.example.zwiggy.R;
 import com.example.zwiggy.databinding.FragmentAcceptedordersBinding;
 
@@ -27,7 +28,7 @@ public class AcceptedOrdersFragment extends Fragment {
 
     private AcceptedOrdersViewModel notificationsViewModel;
     private FragmentAcceptedordersBinding binding;
-    ArrayList<String> acceptedOrders;
+    ArrayList<PendingOrder> acceptedOrders;
     RecyclerView rvAcceptedOrders;
 
 
@@ -45,10 +46,10 @@ public class AcceptedOrdersFragment extends Fragment {
             }
         });
 
-        acceptedOrders = new ArrayList<String>();
-        acceptedOrders.add("yash1 bansal");
-        acceptedOrders.add("Utkarsh1 chutiya");
-        acceptedOrders.add("Mota1 Bhadwa");
+        acceptedOrders = new ArrayList<PendingOrder>();
+//        acceptedOrders.add("yash1 bansal");
+//        acceptedOrders.add("Utkarsh1 chutiya");
+//        acceptedOrders.add("Mota1 Bhadwa");
 
         rvAcceptedOrders = root.findViewById(R.id.rvAcceptedOrders);
         AcceptedOrderAdapter adapter = new AcceptedOrderAdapter(getContext(), acceptedOrders);

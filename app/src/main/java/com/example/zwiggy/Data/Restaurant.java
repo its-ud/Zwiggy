@@ -4,6 +4,16 @@ public class Restaurant {
     private String id;
     private String name;
     private String location;
+    private int mminAmnt;
+
+    public void setminAmnt(int minAmnt)
+    {
+        mminAmnt=minAmnt;
+    }
+    public int getMinAmnt()
+    {
+        return mminAmnt;
+    }
 
     public String getId() {
         return id;

@@ -44,7 +44,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             case 1:holder.historyStatus.setText("Rejected");
                     holder.historyStatus.setTextColor(Integer.parseInt("#FF0000"));
                     break;
-            case 2: holder.historyStatus.setText("Rejected");
+            case 2: holder.historyStatus.setText("");
                     holder.historyStatus.setTextColor(Integer.parseInt("#00FF00"));
                     break;
             default: break;

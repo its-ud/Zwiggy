@@ -5,7 +5,7 @@ public class MenuItem {
     private int price;
     private String disc;
     int quantity;
-
+    int itemAmnt;
 
 
     public MenuItem(String name, int price, String disc){
@@ -13,7 +13,16 @@ public class MenuItem {
         this.price = price;
         this.disc = disc;
     }
-
+//    public MenuItem(String name, int price,int,quant,int itemAmnt){
+//        this.name = name;
+//        this.price = price;
+//        this.itemAmnt=itemAmnt;
+//        this.quantity=
+//    }
+    public int getItemAmnt()
+    {
+        return this.itemAmnt;
+    }
     public String getDisc() {
         return disc;
     }

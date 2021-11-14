@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.zwiggy.Data.ResDetail;
 import com.example.zwiggy.Data.Restaurant;
 import com.example.zwiggy.Data.UserDetail;
 import com.example.zwiggy.R;
@@ -18,6 +19,8 @@ import com.example.zwiggy.UI.CustomerActivity;
 import com.example.zwiggy.UI.CustomerMenuRActivity;
 
 import java.util.ArrayList;
+
+import io.realm.mongodb.User;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerAdapterViewHolder> {
 
@@ -69,6 +72,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         public void onClick(View view) {
             int pos = getAdapterPosition();
             UserDetail.setmcusresId(mResturants.get(pos).getId());
+            ResDetail.setResname((mResturants.get(pos).getName()));
+            ResDetail.setResminAmnt(mResturants.get(pos).getMinAmnt());
+            ResDetail.setResownerid(mResturants.get(pos).getId());
             Log.i("pos", mResturants.get(pos).getName());
             Intent intent = new Intent(mContext, CustomerMenuRActivity.class);
             mContext.startActivity(intent);

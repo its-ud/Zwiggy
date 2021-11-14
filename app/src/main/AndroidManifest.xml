@@ -18,8 +18,13 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         </activity>
+        <activity
             android:name=".UI.CreateNewOrder"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        </activity>
+
+
         <activity
             android:name=".UI.CustomerMenuRActivity"
             android:exported="true"

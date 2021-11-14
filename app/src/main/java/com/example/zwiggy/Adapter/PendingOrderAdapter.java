@@ -1,6 +1,7 @@
 package com.example.zwiggy.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zwiggy.Data.PendingOrder;
 import com.example.zwiggy.R;
+import com.example.zwiggy.UI.CreateNewOrder;
 
 import java.util.ArrayList;
 
@@ -51,16 +53,23 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
         return mPendings.size();
     }
 
-    public class PendingOrdersViewHolder extends RecyclerView.ViewHolder {
+    public class PendingOrdersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView pendingOrderId;
         public TextView pendingCustomerName;
         public TextView pendingBill;
 
         public PendingOrdersViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             pendingOrderId = (TextView) itemView.findViewById(R.id.pending_order_id);
             pendingCustomerName = (TextView) itemView.findViewById(R.id.customer_name_pending);
             pendingBill = (TextView) itemView.findViewById(R.id.pending_bill);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(mContext, CreateNewOrder.class);
+            mContext.startActivity(intent);
         }
     }
 }

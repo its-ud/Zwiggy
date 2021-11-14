@@ -31,6 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/new_order_id"
             android:text="875vdvrorovd0ccd"
             android:textSize="20dp"
             android:textColor="@color/teal_700"/>
@@ -46,6 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/new_order_restaurant_name"
             android:text="Restaurant Name:- "
             android:textSize="20dp"
             android:textColor="@color/black"/>
@@ -71,6 +73,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/new_order_customer_name"
             android:text="Yash Bansal"
             android:textSize="20dp"
             android:textColor="@color/teal_700"/>
@@ -103,6 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rs. 340"
+        android:id="@+id/total_bill"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textSize="25dp"

@@ -10,6 +10,27 @@ public class UserDetail {
     private static String mcusresId;
     private static String mname;
     private static String muserOwnerid;
+    private static String morderId;
+    private static int intentStatus;
+
+    public static String getMorderId()
+    {
+        return morderId;
+    }
+    public static void setMorderId(String orderId)
+    {
+        morderId=orderId;
+    }
+    public static int getIntentStatus()
+    {
+        return intentStatus;
+    }
+    public static void setIntentStatus(int x)
+    {
+        intentStatus=x;
+    }
+
+
     public static String getUid() {
         return muid;
     }

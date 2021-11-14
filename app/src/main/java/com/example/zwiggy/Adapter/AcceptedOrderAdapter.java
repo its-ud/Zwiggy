@@ -1,6 +1,7 @@
 package com.example.zwiggy.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.zwiggy.Data.PendingOrder;
 import com.example.zwiggy.R;
+import com.example.zwiggy.UI.CreateNewOrder;
 
 import java.util.ArrayList;
 
 public class AcceptedOrderAdapter extends RecyclerView.Adapter<AcceptedOrderAdapter.AcceptedOrdersViewHolder> {
 
-    ArrayList<String> mAccepted;
+    ArrayList<PendingOrder> mAccepted;
     Context mContext;
 
-    public AcceptedOrderAdapter(Context context, ArrayList<String> accepted){
+    public AcceptedOrderAdapter(Context context, ArrayList<PendingOrder> accepted){
         mContext = context;
         mAccepted = accepted;
     }
@@ -37,9 +40,10 @@ public class AcceptedOrderAdapter extends RecyclerView.Adapter<AcceptedOrderAdap
 
     @Override
     public void onBindViewHolder(@NonNull AcceptedOrdersViewHolder holder, int position) {
-        String accepted =mAccepted.get(position);
-        TextView textView = holder.acceptedOrder;
-        textView.setText(accepted);
+        PendingOrder pending =mAccepted.get(position);
+        holder.pendingOrderId.setText(pending.getOrderId());
+        holder.pendingBill.setText(Integer.toString(pending.getBill()));
+        holder.pendingCustomerName.setText(pending.getCustomerName());
     }
 
     @Override
@@ -47,12 +51,23 @@ public class AcceptedOrderAdapter extends RecyclerView.Adapter<AcceptedOrderAdap
         return mAccepted.size();
     }
 
-    public class AcceptedOrdersViewHolder extends RecyclerView.ViewHolder {
-        public TextView acceptedOrder;
+    public class AcceptedOrdersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView pendingOrderId;
+        public TextView pendingCustomerName;
+        public TextView pendingBill;
 
         public AcceptedOrdersViewHolder(View itemView) {
             super(itemView);
-            acceptedOrder = (TextView) itemView.findViewById(R.id.list_item_AcceptedOrders);
+            itemView.setOnClickListener(this);
+            pendingOrderId = (TextView) itemView.findViewById(R.id.pending_order_id);
+            pendingCustomerName = (TextView) itemView.findViewById(R.id.customer_name_pending);
+            pendingBill = (TextView) itemView.findViewById(R.id.pending_bill);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(mContext, CreateNewOrder.class);
+            mContext.startActivity(intent);
         }
     }
 }

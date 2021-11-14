@@ -110,6 +110,7 @@ public class CustomerActivity extends AppCompatActivity {
                            restaurant.setId(curDoc.getString("OwnerId"));
                            restaurant.setLocation(curDoc.getString("Loc"));
                            restaurant.setName(curDoc.getString("Name"));
+                           restaurant.setminAmnt(curDoc.getInteger("MinAmnt"));
                            restaurants.add(restaurant);
                            Log.i(LOG_TAG,"restaurant in range "+ curDoc.getString("Name"));
                        }
